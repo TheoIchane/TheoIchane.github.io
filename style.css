@@ -3,28 +3,49 @@ body {
     overflow-x: hidden;
 }
 
-a {
-    text-decoration: none;
-    color: white;
+#nav-buttons img {
+    height: 20vh;
+    background:none;
 }
-nav {
-    position: relative;
-    left: -10px;
-    top: -10px;
+
+button {
+    margin: 0.5vw;
+    background:none;
+    height: 20%;
+    border: none;
+    text-align: center;
+    cursor: url(img/cursor.png),pointer;
+}
+
+#nav-buttons {
     display: flex;
-    flex-direction: row;
-    background-color: grey;
-    height: 30px;
-    margin: 0;
-    width: 100vw;
-    padding: 10px;
+    flex-direction: column;
+    height: fit-content;
+    width: 20vw;
 }
 
-nav div {
+button h3 {
+    margin: 3px;
+    width: 100%;
+}
+
+#content {
+        display: flex;
+        flex-direction: row;
+        height: fit-content;
+}
+
+#contacts {
     position: relative;
-    left: 70%;
+    top: 5vw;
 }
 
-#test {
-    margin-top: 110vh;
+#contacts img {
+    height: 10vh;
+}
+
+.screen {
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
 }

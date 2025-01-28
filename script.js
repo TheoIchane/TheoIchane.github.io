@@ -1,9 +1,18 @@
-const head = document.getElementsByTagName('nav')[0]
-console.log(head.clientHeight)
-document.addEventListener('scroll',stickyHead)
+const user_info = document.getElementById('user_info')
+const proj_page = document.getElementById('projects')
 
-function stickyHead() {
-    if (window.scrollY >= head.clientHeight) {
-        head.style.position = 'fixed'
-    }
+
+window.onload = displayUserInfo()
+
+function displayUserInfo() {
+    user_info.style.display = 'flex'
+}
+
+function displayHomePage() {
+    homepage.style.display = 'flex'
+    user_info.style.display = 'none'
+}
+
+function openProjectsFolder() {
+
 }

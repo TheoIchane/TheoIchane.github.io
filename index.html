@@ -7,18 +7,38 @@
         <title>Home</title>
     </head>
     <body>
-        <nav>
-            <a href="/" id="home-button">Home</a>
-            <div>
-                <a href="/profil.html" id="profil-button">Me</a>
-                <a href="/project.html" id="project-button">My Projects</a>
+        <div id="content">
+            <div id="nav-buttons">
+                <button id="user" onclick="displayUserInfo()"><img
+                        src="img/userpp.png">
+                    <h3>Profile</h3></button>
+                <button id="skills"><img src="img/skills.png" alt>
+                    <h3>Skills</h3></button>
+                <button id="folder_projects" onclick="openProjectsFolder()"><img
+                        src="img/folder.png">
+                    <h3>Projects</h3>
+                </button>
             </div>
-        </nav>
-        <div id="test">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. A rem
-            fugiat voluptate nobis ad, itaque quasi cupiditate, nulla iste
-            suscipit ipsa libero tenetur optio vel eum id voluptas magni
-            necessitatibus.
+            <div id="user_info" style="display: none;" class="screen">
+                <h2>USER INFO</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
+                    iaculis lorem in tortor rutrum, in ultricies nisi dictum.
+                    Suspendisse sagittis molestie interdum. Donec nec lobortis
+                    dui. Nullam nibh nunc, rhoncus nec rutrum in, tristique id
+                    odio. Pellentesque dignissim dictum pulvinar. Pellentesque
+                    sem diam, lobortis et mattis id, suscipit at elit.
+                    Vestibulum rutrum accumsan mauris eu feugiat. Curabitur
+                    tempus elit eget felis vestibulum pharetra. Pellentesque
+                    interdum aliquet lorem, ac euismod odio finibus ut. Aliquam
+                    sit amet interdum felis. Sed vel ipsum feugiat, condimentum
+                    erat gravida, accumsan purus. Sed dignissim purus non lectus
+                    suscipit gravida. Maecenas accumsan, nibh eu aliquam
+                    ultrices, eros.</p>
+            </div>
+        </div>
+        <div id="contacts">
+            <a href="https://github.com/TheoIchane"><img src="img/github.svg"
+                    alt></a>
         </div>
         <script src="script.js"></script>
     </body>
