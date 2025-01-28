@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>League Of Heroes</title>
+    <link rel="stylesheet" href="s.css" />
+    <link rel="icon" href="karmine-corp-logo.png" type="image/png" />
+  </head>
+  <body>
+    <header>
+      <h1>League Of Heroes</h1>
+
+      <!-- search bar -->
+      <div id="search-div" style="display: flex; flex-direction: row;">
+        <select name="field" id="searchField"
+          style="width: fit-content; margin-right: 5px;">
+          <option value="name">Name</option>
+          <option value="biography fullName">Full Name</option>
+          <option value="appearance race">Race</option>
+          <option value="appearance gender">Gender</option>
+          <option value="appearance height">Height</option>
+          <option value="appearance weight">Weight</option>
+          <option value="biography placeOfBirth">Place Of Birth</option>
+          <option value="biography alignment">Alignment</option>
+          <option value="powerstats intelligence">Intelligence</option>
+          <option value="powerstats strength">Strength</option>
+          <option value="powerstats speed">Speed</option>
+          <option value="powerstats durability">Durability</option>
+          <option value="powerstats power">Power</option>
+          <option value="powerstats combat">Combat</option>
+        </select>
+        <input type="text" id="search" placeholder="Search by field..."
+          onkeyup="filterTable()" />
+      </div>
+    </header>
+
+    <div class="container">
+      <!-- Search bar
+      <input type="text" id="search" placeholder="Search by name..." onkeyup="filterData()" /> -->
+
+      <select id="page-size" onchange="changePageSize()">
+        <option value="10">10</option>
+        <option value="20" selected>20</option>
+        <option value="50">50</option>
+        <option value="100">100</option>
+        <option value="all">All</option>
+      </select>
+
+      <!-- Table for displaying heroes -->
+      <div class="table-container">
+        <table id="hero-table">
+          <thead>
+            <tr>
+              <th>Icon</th>
+              <th id="name" onclick="sortTable('name')">Name</th>
+              <th id="fullName" onclick="sortTable('fullName')">Full Name</th>
+              <th id="race" onclick="sortTable('race')">Race</th>
+              <th id="gender" onclick="sortTable('gender')">Gender</th>
+              <th id="height" onclick="sortTable('height')">Height</th>
+              <th id="weight" onclick="sortTable('weight')">Weight</th>
+              <th id="placeOfBirth" onclick="sortTable('placeOfBirth')">Place of
+                Birth</th>
+              <th id="alignment" onclick="sortTable('alignment')">Alignment</th>
+              <th id="intelligence"
+                onclick="sortTable('intelligence')">Intelligence</th>
+              <th id="strength" onclick="sortTable('strength')">Strength</th>
+              <th id="speed" onclick="sortTable('speed')">Speed</th>
+              <th id="durability"
+                onclick="sortTable('durability')">Durability</th>
+              <th id="power" onclick="sortTable('power')">Power</th>
+              <th id="combat" onclick="sortTable('combat')">Combat</th>
+            </tr>
+          </thead>
+          <tbody id="hero-body"></tbody>
+        </table>
+      </div>
+
+      <!-- Pagination controls -->
+      <div id="pagination"></div>
+    </div>
+
+    <script src="sortable.js"></script>
+  </body>
+</html>

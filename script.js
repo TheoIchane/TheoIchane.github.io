@@ -1,18 +1,21 @@
-const user_info = document.getElementById('user_info')
-const proj_page = document.getElementById('projects')
+const user_page = document.getElementById('user_info');
+const proj_page = document.getElementById('projects');
+const skill_page = document.getElementById('skills_page');
 
+const pages = {
+    user:   user_page,
+    projects: proj_page,
+    skills: skill_page
+};
 
-window.onload = displayUserInfo()
+window.onload = displayPages('user')
 
-function displayUserInfo() {
-    user_info.style.display = 'flex'
-}
-
-function displayHomePage() {
-    homepage.style.display = 'flex'
-    user_info.style.display = 'none'
-}
-
-function openProjectsFolder() {
-
+function displayPages(page) {
+    Object.entries(pages).forEach(([k,v]) => {
+        if (k === page) {
+            v.style.display = 'flex'
+        } else {
+            v.style.display = 'none'
+        }
+    })
 }

@@ -1,0 +1,163 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(135deg, #1f1c45, #4c6ef5);
+  color: #fff;
+}
+
+/* Style de l'en-tête */
+header {
+  width: 100%;
+  max-width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+/* Style du titre */
+header h1 {
+  font-size: 3em;
+  font-family: 'Bangers', sans-serif;
+  color: #ffcc00;
+  margin-bottom: 20px;
+  text-align: center;
+  text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.6);
+}
+
+/* Style de la section de la barre de recherche */
+section.home {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+/* Style du bouton de recherche */
+button {
+  padding: 12px 18px;
+  background-color: #ff5c57;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1.1em;
+  transition: background-color 0.3s ease;
+  color: white;
+}
+
+button:hover {
+  background-color: #ff2a2a;
+}
+
+/* Conteneur principal */
+.container {
+  width: 100%;
+  max-width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Style du sélecteur de taille de page */
+#page-size {
+  margin: 20px 0;
+  padding: 12px;
+  font-size: 1em;
+  border: 1px solid #ffcc00;
+  border-radius: 5px;
+  background-color: #333;
+  color: white;
+  text-align: center;
+}
+
+/* Style du tableau */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 15px 20px;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+th {
+  background-color: #4c6ef5;
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+tr:nth-child(even) {
+  background-color: #2b2a6b;
+}
+
+tr:nth-child(odd) {
+  background-color: #3f3c88;
+}
+
+/* Surbrillance des lignes au survol */
+tr:hover {
+  background-color: #ffcc00;
+  color: #1f1c45;
+}
+
+/* Contrôles de pagination */
+#pagination {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px
+}
+
+#pagination button {
+  padding: 8px 12px;
+  border: 1px solid #ffcc00;
+  background-color: #333;
+  border-radius: 5px;
+  cursor: pointer;
+  color: #ffcc00;
+  transition: background-color 0.3s ease;
+}
+
+#pagination button:hover {
+  background-color: #007bff;
+  color: white;
+}
+
+#pagination button.active {
+  background-color: #007bff;
+  color: white;
+}
+
+/* Responsivité pour les écrans plus petits */
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 2.5em;
+  }
+
+  button, #page-size {
+    font-size: 1em;
+  }
+
+  .fx-gap {
+    gap: 8px;
+  }
+
+  th, td {
+    padding: 10px 12px;
+  }
+}

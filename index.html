@@ -9,36 +9,67 @@
     <body>
         <div id="content">
             <div id="nav-buttons">
-                <button id="user" onclick="displayUserInfo()"><img
-                        src="img/userpp.png">
+                <button id="user" onclick="displayPages('user')"><img
+                        src="img/userpp.png" alt="userpp_image">
                     <h3>Profile</h3></button>
-                <button id="skills"><img src="img/skills.png" alt>
+                <button id="skill" onclick="displayPages('skills')"><img
+                        src="img/skills.png" alt="skills_image">
                     <h3>Skills</h3></button>
-                <button id="folder_projects" onclick="openProjectsFolder()"><img
-                        src="img/folder.png">
+                <button id="folder_projects"
+                    onclick="displayPages('projects')"><img
+                        src="img/folder.png" alt="folder_image">
                     <h3>Projects</h3>
                 </button>
             </div>
             <div id="user_info" style="display: none;" class="screen">
                 <h2>USER INFO</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
-                    iaculis lorem in tortor rutrum, in ultricies nisi dictum.
-                    Suspendisse sagittis molestie interdum. Donec nec lobortis
-                    dui. Nullam nibh nunc, rhoncus nec rutrum in, tristique id
-                    odio. Pellentesque dignissim dictum pulvinar. Pellentesque
-                    sem diam, lobortis et mattis id, suscipit at elit.
-                    Vestibulum rutrum accumsan mauris eu feugiat. Curabitur
-                    tempus elit eget felis vestibulum pharetra. Pellentesque
-                    interdum aliquet lorem, ac euismod odio finibus ut. Aliquam
-                    sit amet interdum felis. Sed vel ipsum feugiat, condimentum
-                    erat gravida, accumsan purus. Sed dignissim purus non lectus
-                    suscipit gravida. Maecenas accumsan, nibh eu aliquam
-                    ultrices, eros.</p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
+                iaculis lorem in tortor rutrum, in ultricies nisi dictum.
+                Suspendisse sagittis molestie interdum. Donec nec lobortis
+                dui. Nullam nibh nunc, rhoncus nec rutrum in, tristique id
+                odio. Pellentesque dignissim dictum pulvinar. Pellentesque
+                sem diam, lobortis et mattis id, suscipit at elit.
+                Vestibulum rutrum accumsan mauris eu feugiat. Curabitur
+                tempus elit eget felis vestibulum pharetra. Pellentesque
+                interdum aliquet lorem, ac euismod odio finibus ut. Aliquam
+                sit amet interdum felis. Sed vel ipsum feugiat, condimentum
+                erat gravida, accumsan purus. Sed dignissim purus non lectus
+                suscipit gravida. Maecenas accumsan, nibh eu aliquam
+                ultrices, eros.
+            </div>
+            <div id="skills_page" class="screen">
+                <h2>Skills</h2>
+                <div id="skills">
+                    <a
+                        href="https://github.com/TheoIchane/School_Projects/tree/main/Golang/ascii-art-web"
+                        class="skill">
+                        <img src="img/ascii-art-web.png" alt>
+                        <h4>Ascii Art Web</h4>
+                        <h6>An online ascii-art generator for text using
+                            different font.</h6></a>
+                    <div class="skill">2</div>
+                    <div class="skill">3</div>
+                    <div class="skill">4</div>
+                    <div class="skill">5</div>
+                    <div class="skill">6</div>
+                    <div class="skill">7</div>
+                    <div class="skill">8</div>
+                    <div class="skill">9</div>
+                </div>
+            </div>
+            <div id="projects" class="screen">
+                <h2>Projects</h2>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque
+                asperiores corrupti dolore quasi neque animi adipisci voluptas
+                corporis ipsum, ea natus tenetur cupiditate pariatur illum,
+                quidem eligendi dolores culpa illo!
             </div>
         </div>
         <div id="contacts">
             <a href="https://github.com/TheoIchane"><img src="img/github.svg"
                     alt></a>
+            <a href="https://www.linkedin.com/in/theo-ichane-b2a812343/"><img
+                    src="img/linkedin.png" alt></a>
         </div>
         <script src="script.js"></script>
     </body>
