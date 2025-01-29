@@ -78,7 +78,10 @@ button h3 {
     padding: 1rem;
     background: rgba(255, 255, 255, 0.05);
     border-radius: 8px;
-    overflow-y: auto;
+    overflow-y: scroll;
+}
+.screen::-webkit-scrollbar {
+    display: none;
 }
 
 .screen h2 {
@@ -243,6 +246,13 @@ button h3 {
     
     .project {
         max-width: 100%;
+    }
+
+}
+
+@media screen and (min-width: 769px) {
+    #content {
+        max-height:90vh;
     }
 }
 
