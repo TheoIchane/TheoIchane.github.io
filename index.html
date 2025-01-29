@@ -4,14 +4,15 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="style.css">
-        <title>Home</title>
+        <title>Theo Ichane</title>
+        <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
     </head>
     <body>
         <div id="content">
             <div id="nav-buttons">
                 <button id="user" onclick="displayPages('user')"><img
                         src="img/userpp.png" alt="userpp_image">
-                    <h3>Profile</h3></button>
+                    <h3>About Me</h3></button>
                 <button id="skill" onclick="displayPages('skills')"><img
                         src="img/skills.png" alt="skills_image">
                     <h3>Skills</h3></button>
@@ -22,55 +23,122 @@
                 </button>
             </div>
             <div id="user_info" style="display: none;" class="screen">
-                <h2>USER INFO</h2>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
-                iaculis lorem in tortor rutrum, in ultricies nisi dictum.
-                Suspendisse sagittis molestie interdum. Donec nec lobortis
-                dui. Nullam nibh nunc, rhoncus nec rutrum in, tristique id
-                odio. Pellentesque dignissim dictum pulvinar. Pellentesque
-                sem diam, lobortis et mattis id, suscipit at elit.
-                Vestibulum rutrum accumsan mauris eu feugiat. Curabitur
-                tempus elit eget felis vestibulum pharetra. Pellentesque
-                interdum aliquet lorem, ac euismod odio finibus ut. Aliquam
-                sit amet interdum felis. Sed vel ipsum feugiat, condimentum
-                erat gravida, accumsan purus. Sed dignissim purus non lectus
-                suscipit gravida. Maecenas accumsan, nibh eu aliquam
-                ultrices, eros.
+                <h2>Hello I'm Theo</h2>
+                <h3 style="margin-bottom: 0;">Full Stack Developer
+                    Apprentice</h3>
+                <div id="first_row"
+                    style="display: flex; flex-direction: row; margin-top: 2.5rem;">
+                    <img src="img/userpp.png" alt="profil_pic" id="profil_pic"
+                        style="margin: 1rem; border: 3px solid black; border-radius: 5%; padding: 1rem 0;">
+                    <div style="margin: 1.5rem 0; font-size: 23px;">
+                        Currently, I am a first year apprentice full stack
+                        developer at
+                        <a
+                            href="https://zone01rouennormandie.org/formation-developpeur/"
+                            style="text-decoration: underline;">Zone01
+                            Rouen Normandie</a>, a project-based
+                        training for IT
+                        developers. <br>
+                        I'm focusing on backend and full stack
+                        development.
+                    </div>
+                </div>
+                <div id="second_row" style="font-size: 1.7rem;"><br>
+                    Feel free to contact me for any opportunities! <br> <br>
+                    <a
+                        href="mailto:ichane.theo@gmail.com"
+                        style="text-decoration: underline;">ichane.theo@gmail.com</a>
+                </div>
             </div>
             <div id="skills_page" class="screen">
                 <h2>Skills</h2>
-                <div id="skills">
-                    <a
-                        href="https://github.com/TheoIchane/School_Projects/tree/main/Golang/ascii-art-web"
-                        class="skill">
-                        <img src="img/ascii-art-web.png" alt>
-                        <h4>Ascii Art Web</h4>
-                        <h6>An online ascii-art generator for text using
-                            different font.</h6></a>
-                    <div class="skill">2</div>
-                    <div class="skill">3</div>
-                    <div class="skill">4</div>
-                    <div class="skill">5</div>
-                    <div class="skill">6</div>
-                    <div class="skill">7</div>
-                    <div class="skill">8</div>
-                    <div class="skill">9</div>
+                <h4>Some of differents programming languages that i learned.
+                </h4>
+                <div id="skills-grid">
+                    <div class="skill"><img src="img/go.png" alt>
+                        <h4>Golang</h4></div>
+                    <div class="skill"><img src="img/python.png" alt>
+                        <h4>Python</h4></div>
+                    <div class="skill"><img src="img/sql.png" alt>
+                        <h4 id="sql">SQL</h4></div>
+                    <div class="skill"><img src="img/html.png" alt>
+                        <h4>HTML</h4></div>
+                    <div class="skill"><img src="img/css.png" alt>
+                        <h4>CSS</h4></div>
+                    <div class="skill"><img src="img/js.png" alt>
+                        <h4>JavaScript</h4></div>
                 </div>
             </div>
-            <div id="projects" class="screen">
+            <div id="projects_page" class="screen">
                 <h2>Projects</h2>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque
-                asperiores corrupti dolore quasi neque animi adipisci voluptas
-                corporis ipsum, ea natus tenetur cupiditate pariatur illum,
-                quidem eligendi dolores culpa illo!
+                <h4>Some projects of mine.</h4>
+                <div id="projects-grid">
+                    <a
+                        href="https://github.com/TheoIchane/School_Projects/tree/main/Golang/ascii-art-web"
+                        class="project">
+                        <img src="img/ascii-art-web.png" alt>
+                        <div id="description">
+                            <h6>An online ascii-art generator for text with
+                                differents fonts using GO.</h6>
+                            <h4>Ascii Art Web</h4>
+                        </div></a>
+                    <a
+                        href="https://github.com/TheoIchane/School_Projects/tree/main/Golang/groupie-tracker"
+                        class="project">
+                        <img src="img/groupie-tracker.png" alt>
+                        <div id="description">
+                            <h6>A web project displaying information from an API
+                                of artists/bands using GO.</h6>
+                            <h4>Groupie Tracker</h4>
+                        </div></a>
+                    <a
+                        href="https://github.com/TheoIchane/School_Projects/tree/main/Golang/forum"
+                        class="project">
+                        <img src="img/forum.png" alt>
+                        <div id="description">
+                            <h6>A WEB Forum using GO and SQLite to store the
+                                data.</h6>
+                            <h4>Forum</h4>
+                        </div></a>
+                    <a
+                        href="/projects/sortable/"
+                        class="project">
+                        <img src="img/sortable.png" alt>
+                        <div id="description">
+                            <h6>A Super Heroes DataBase sortable by any details
+                                using only JavaScript.</h6>
+                            <h4>Sortable</h4>
+                        </div></a>
+                    <a
+                        href="/projects/clonernews/"
+                        class="project">
+                        <img src="img/clonernews.png" alt>
+                        <div id="description">
+                            <h6>An User Interface for the HackerNews API using
+                                JavaScript.</h6>
+                            <h4>Clonernews</h4>
+                        </div></a>
+                    <a
+                        href="https://github.com/TheoIchane"
+                        class="project"
+                        style="background-color: rgba(255, 255, 255, 0.753);">
+                        <img src="img/more.png">
+                        <div id="description">
+                            <h4>See More on my Github</h4>
+                        </div></a>
+                </div>
             </div>
         </div>
         <div id="contacts">
-            <a href="https://github.com/TheoIchane"><img src="img/github.svg"
+            <a href="https://github.com/TheoIchane"><img
+                    src="img/github.svg"
                     alt></a>
-            <a href="https://www.linkedin.com/in/theo-ichane-b2a812343/"><img
+            <a
+                href="https://www.linkedin.com/in/theo-ichane-b2a812343/"><img
                     src="img/linkedin.png" alt></a>
         </div>
+        <p style="text-align: center;">© Theo Ichane 2025. All Rights
+            Reserved.</p>
         <script src="script.js"></script>
     </body>
 </html>
