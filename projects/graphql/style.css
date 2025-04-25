@@ -1,0 +1,25 @@
+#auditBlock {
+    width: 200px;
+    border: 3px solid black;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.auditXp {
+    background-color: rgb(109, 104, 91);
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid black;
+}
+
+#totalDown {
+    background-color: rgb(247, 193, 47);
+}
+
+#totalUp {
+    background-color: rgb(77, 77, 109);
+}
+
+h2 {
+    margin-top: 0;
+}
