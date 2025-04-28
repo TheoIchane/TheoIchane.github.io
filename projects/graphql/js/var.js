@@ -114,63 +114,87 @@ export class XPBlock {
         this.trans_go = []
     }
 
-    sortData(entry) {
+    sortData(entry, x, y) {
         let data = new Object()
         let points = ""
-        let start = Date.parse(entry[0].createdAt.slice(0,10))
-        console.log(entry)
+        let start = Date.parse(entry[0].createdAt.slice(0, 10))
         entry.forEach((elem) => {
-            if (!data[(Date.parse(elem.createdAt.slice(0,10)) - start)/100000]) {
-                data[(Date.parse(elem.createdAt.slice(0,10)) - start)/100000] = elem.amount
+            if (!data[(Date.parse(elem.createdAt.slice(0, 10)) - start) / 100000]) {
+                data[(Date.parse(elem.createdAt.slice(0, 10)) - start) / 100000] = elem.amount
             } else {
-                data[(Date.parse(elem.createdAt.slice(0,10)) - start)/100000]+= elem.amount
+                data[(Date.parse(elem.createdAt.slice(0, 10)) - start) / 100000] += elem.amount
             }
         })
-        let offSet = 120
+        let offSet = 150
         let total = 0
-        Object.entries(data).forEach(([key,value]) => {
+        Object.entries(data).forEach(([key, value]) => {
             total += value
-            offSet -= Math.ceil(value/10000)
-            points += `${Math.ceil(key/1000)}, ${offSet}\n`
+            offSet -= Math.ceil(value / y)
+            points += `${Math.ceil(key / x)}, ${offSet}\n`
         })
-        points += `${Math.ceil(Date.now()/1000000000)}, ${offSet}\n`
-        return points
+        return { points: points, amount: total }
     }
 
     async init() {
         let data = (await fetchData(this.query)).transaction
-        console.log(data)
-        this.transactions = data.filter((elem) => { return !(elem.path.includes("/piscine-js/") || elem.path.includes("/piscine-go/"))})
-        this.trans_go = data.filter((elem) => { return (elem.path.includes("/piscine-go/"))})
-        this.trans_js = data.filter((elem) => { return (elem.path.includes("/piscine-js/"))})
+        this.transactions = data.filter((elem) => { return !(elem.path.includes("/piscine-js/") || elem.path.includes("/piscine-go/")) }).sort((a, b) => {
+            return Date.parse(a.createdAt.slice(0, 10)) - Date.parse(b.createdAt.slice(0, 10))
+        })
+        this.trans_go = data.filter((elem) => { return (elem.path.includes("/piscine-go/")) }).sort((a, b) => {
+            return Date.parse(a.createdAt.slice(0, 10)) - Date.parse(b.createdAt.slice(0, 10))
+        })
+        this.trans_js = data.filter((elem) => { return (elem.path.includes("/piscine-js/")) }).sort((a, b) => {
+            return Date.parse(a.createdAt.slice(0, 10)) - Date.parse(b.createdAt.slice(0, 10))
+        })
     }
 
     async render() {
         await this.init()
-        let cursus_points = this.sortData(this.transactions)
-        let js_points = this.sortData(this.trans_js)
-        let go_points = this.sortData(this.trans_go)
+        let cursus = this.sortData(this.transactions, 75, 1000)
+        let js = this.sortData(this.trans_js, 40, 1000)
+        let go = this.sortData(this.trans_go, 30, 4500)
+        let total = cursus.amount + js.amount + go.amount
         return (`
-            <div id="xpBlock" class="block">
-            <h2>Cursus:</h2>
-            <svg width="300" height="1200" xmlns="http://www.w3.org/2000/svg">
-  <polyline fill="none" stroke="black" stroke-width="3" points="${cursus_points}" />
+            <div class="block">
+            <h2>Cursus: <span class="amount">${cursus.amount} xp</span></h2>
+            <svg width="300" xmlns="http://www.w3.org/2000/svg">
+  <polyline fill="none" stroke="rgb(190, 50, 31)" stroke-width="3" points="${cursus.points}" />
 </svg>
             </div>
 
-            <div id="xpBlock" class="block">
-            <h2>Piscine JS:</h2>
-            <svg width="300" height="1200" xmlns="http://www.w3.org/2000/svg">
-  <polyline fill="none" stroke="black" stroke-width="3" points="${js_points}" />
+            <div class="block">
+            <h2>Piscine JS: <span class="amount">${js.amount} xp</span></h2>
+            <svg width="300" xmlns="http://www.w3.org/2000/svg">
+  <polyline fill="none" stroke="rgb(207, 195, 27)" stroke-width="3" points="${js.points}" />
 </svg>
             </div>
 
-            <div id="xpBlock" class="block">
-            <h2>Piscine GO:</h2>
-            <svg width="300" height="1200" xmlns="http://www.w3.org/2000/svg">
-  <polyline fill="none" stroke="black" stroke-width="3" points="${go_points}" />
+            <div class="block">
+            <h2>Piscine GO: <span class="amount">${go.amount} xp</span></h2>
+            <svg width="300" xmlns="http://www.w3.org/2000/svg">
+  <polyline fill="none" stroke="rgb(49, 66, 177)" stroke-width="3" points="${go.points}" />
 </svg>
             </div>
+
+            <div id="pie_chart" class="block">
+            <h2 style="
+    margin-bottom: 0px;">XP Ratio: </h2> <br>
+            <div id="pie_content">
+  <svg viewBox="0 0 64 64" class="pie">
+  <circle r="25%" cx="50%" cy="50%" style="stroke-dasharray: ${go.amount / total * 100} 100;  stroke-dashoffset: 0">
+  </circle>
+  <circle r="25%" cx="50%" cy="50%" style="stroke-dasharray: ${js.amount / total * 100} 100; stroke: rgb(207, 195, 27); stroke-dashoffset: -${go.amount / total * 100}; animation-delay: 0.25s">
+  </circle>
+  <circle r="25%" cx="50%" cy="50%" style="stroke-dasharray: ${cursus.amount / total * 100 + 1} 100; stroke: rgb(190, 50, 31); stroke-dashoffset: -${100 - cursus.amount / total * 100}; animation-delay: 0.5s">
+  </circle>
+</svg>
+<div class="legend">
+  <span class="color" style="background-color: rgb(207, 195, 27);">&nbsp;</span> JavaScript <br>
+  <span class="color" style="background-color: rgb(190, 50, 31);">&nbsp;</span> Cursus <br>
+  <span class="color" style="background-color: rgb(49, 66, 177);">&nbsp;</span> Go
+</div>
+</div>
+</div>
             `)
     }
 

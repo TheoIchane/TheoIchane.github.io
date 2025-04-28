@@ -20,29 +20,32 @@ async function fetchJWT() {
     })
     let r = await resp.json()
     if (r.error) {
-        console.log(r.error)
-        return
+        return r.error
     }
     localStorage.setItem("token", r)
     parseJWT(r)
     displayInfo()
 }
 
-function loginForm() {
+function loginForm(error = "") {
     logout.style.display = 'none'
     let form = document.createElement('form')
     form.id = 'loginForm'
     form.innerHTML = `
-    <h1>Login</h1>
+    <h1>Login</h1> 
+    <div id="error">${error}</div>
     <label for="identifier">Username or Email:</label>
     <input type="text" name="identifier" id="identifier" required>
     <label for="password">Password:</label>
     <input type="password" name="password" id="password" required>
     <button>Login</button>`
-    
-    form.addEventListener('submit', (e) => {
+
+    form.addEventListener('submit', async (e) => {
         e.preventDefault()
-        fetchJWT()
+        let error = await fetchJWT()
+        if (error) {
+            loginForm(error)
+        }
     })
     app.innerHTML = ""
     app.appendChild(form)

@@ -2,7 +2,7 @@
 
 
 body {
-    font-family: Alfa Slab One,serif;
+    font-family: Alfa Slab One, serif;
     background-color: rgb(28, 28, 31);
 }
 
@@ -34,6 +34,7 @@ body {
 h2 {
     margin-top: 0;
 }
+
 .chart {
     background: white;
     width: 500px;
@@ -51,14 +52,17 @@ h2 {
     display: flex;
     flex-direction: column;
     width: 250px;
-    background-color: rgb(71, 76, 80);
+    background-color: rgb(196, 196, 196);
     padding: 10px 5px;
     border-radius: 10px;
+    position: relative;
+    left: 35%;
 }
 
 #loginForm h1 {
     text-align: center;
 }
+
 #loginForm button {
     align-self: center;
 }
@@ -84,6 +88,38 @@ h2 {
 }
 
 button {
-    
+
     all: unset;
+}
+
+.amount {
+    font-size: 15px;
+}
+
+.pie {
+    width: 50%;
+    height: fit-content;
+    border: 2px solid black;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.pie circle {
+    fill: none;
+    stroke: rgb(49, 66, 177);
+    stroke-width: 32;
+}
+
+#pie_content {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 0px;
+}
+
+.color {
+    width: 5px;
+}
+
+#error {
+    color: rgb(170, 31, 31);
 }
