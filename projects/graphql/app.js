@@ -1,5 +1,4 @@
-import { AuditBlock, ProfilBlock } from "./js/var.js"
-import { fetchData } from "./js/data.js"
+import { AuditBlock, ProfilBlock, XPBlock } from "./js/var.js"
 const baseURL = "https://zone01normandie.org/api"
 const app = document.getElementById('app')
 const logout = document.getElementById('logout')
@@ -37,9 +36,10 @@ function loginForm() {
     <h1>Login</h1>
     <label for="identifier">Username or Email:</label>
     <input type="text" name="identifier" id="identifier" required>
-    <label for="password">Password</label>
+    <label for="password">Password:</label>
     <input type="password" name="password" id="password" required>
     <button>Login</button>`
+    
     form.addEventListener('submit', (e) => {
         e.preventDefault()
         fetchJWT()
@@ -60,10 +60,15 @@ async function displayInfo() {
     }
     logout.style.display = 'block'
     app.innerHTML = ""
+    let profilBlock = new ProfilBlock()
+    app.innerHTML += await profilBlock.render()
     let auditBlock = new AuditBlock()
     app.innerHTML += await auditBlock.render()
 
-    let profilBlock = new ProfilBlock()
-    app.innerHTML += await profilBlock.render()
+
+    let xpBlock = new XPBlock()
+    app.innerHTML += await xpBlock.render()
 }
+
+
 

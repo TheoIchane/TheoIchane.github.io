@@ -1,8 +1,9 @@
-#auditBlock {
-    width: 200px;
-    border: 3px solid black;
-    border-radius: 10px;
-    padding: 10px;
+@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap');
+
+
+body {
+    font-family: Alfa Slab One,serif;
+    background-color: rgb(28, 28, 31);
 }
 
 .auditXp {
@@ -12,14 +13,77 @@
     border: 1px solid black;
 }
 
+#logo {
+    color: white;
+    font-size: 40px;
+}
+
+#logo span {
+    position: absolute;
+    margin-top: 25px;
+}
+
 #totalDown {
-    background-color: rgb(247, 193, 47);
+    background-color: rgb(134, 51, 40);
 }
 
 #totalUp {
-    background-color: rgb(77, 77, 109);
+    background-color: rgb(41, 73, 110);
 }
 
 h2 {
     margin-top: 0;
+}
+.chart {
+    background: white;
+    width: 500px;
+    height: 100px;
+    padding: 20px 20px 20px 0;
+}
+
+#app {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#loginForm {
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    background-color: rgb(71, 76, 80);
+    padding: 10px 5px;
+    border-radius: 10px;
+}
+
+#loginForm h1 {
+    text-align: center;
+}
+#loginForm button {
+    align-self: center;
+}
+
+.block {
+    height: 200px;
+    width: 300px;
+    margin: 10px;
+    border: 3px solid black;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: rgb(196, 196, 196);
+}
+
+#navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#logout {
+    color: white;
+}
+
+button {
+    
+    all: unset;
 }
